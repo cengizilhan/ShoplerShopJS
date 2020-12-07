@@ -59,19 +59,19 @@
           for (i = 0; i < data.length; i++) {
             if (data[i].category_id == categoryParse) {
               var htmlItem = '<div class="ShopItems"><div class="ShopItem" style="background: url(' + data[i].image +
-                ');background-size:150px 200px;"></div> ' + data[i].title + ' <p><b><i>' + data[i].price +
-                'TL</i></b></p><div class="addBasket" onClick="notifyBar()"><i class="fas fa-shopping-cart"></i> Add to Cart</div></div>';
-              $(appendItem).append(htmlItem);
+              ');background-size:150px 200px;"></div> ' + data[i].title + ' <p><b><i>' + data[i].price +
+              'TL</i></b></p><div class="addBasket" onClick="notifyBar()" data-title="' + data[i].id + '"><i class="fas fa-shopping-cart"></i> Add to Cart</div></div>';
+            $(appendItem).append(htmlItem);
             }
           }
         }
         else {
 
           for (i = 0; i < data.length; i++) {
-
+              
             var htmlItem = '<div class="ShopItems"><div class="ShopItem" style="background: url(' + data[i].image +
               ');background-size:150px 200px;"></div> ' + data[i].title + ' <p><b><i>' + data[i].price +
-              'TL</i></b></p><div class="addBasket" onClick="notifyBar()" data-title="' + data[i].id + '"><i class="fas fa-shopping-cart"></i> Sepete Ekle</div></div>';
+              'TL</i></b></p><div class="addBasket" onClick="notifyBar()" data-title="' + data[i].id + '"><i class="fas fa-shopping-cart"></i> Add to Cart</div></div>';
             $(appendItem).append(htmlItem);
 
 
