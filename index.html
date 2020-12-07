@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <meta name="viewport" >
+  <title>Shoplyer</title>
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/custom.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -108,7 +108,7 @@
 
 <body>
 
-<a onclick="runn()">storage clear</a>
+
 <script>
   function runn(){
     localStorage.clear();
@@ -139,36 +139,23 @@ Data come from below section as javascript / json
     <div class="content">
       <hr style="width: 55%; margin-top:-1px;   border-top: 1px solid #dedede;">
       <section class="lazy slider" data-sizes="50vw" style="margin-top:20px;">
-        <div>
-          <img data-lazy="http://placehold.it/350x300?text=1-350w"
-            data-srcset="http://placehold.it/650x300?text=1-650w 650w, http://placehold.it/960x300?text=1-960w 960w"
-            data-sizes="100vw">
-        </div>
+ 
         <div>
           <img data-lazy="http://placehold.it/350x300?text=2-350w"
-            data-srcset="http://placehold.it/650x300?text=2-650w 650w, http://placehold.it/960x300?text=2-960w 960w"
+          data-srcset="./imgs/carouselImgs/2.jpg"
             data-sizes="100vw">
         </div>
         <div>
           <img data-lazy="http://placehold.it/350x300?text=3-350w"
-            data-srcset="http://placehold.it/650x300?text=3-650w 650w, http://placehold.it/960x300?text=3-960w 960w"
+          data-srcset="./imgs/carouselImgs/3.jpg"
             data-sizes="100vw">
         </div>
         <div>
           <img data-lazy="http://placehold.it/350x300?text=4-350w"
-            data-srcset="http://placehold.it/650x300?text=4-650w 650w, http://placehold.it/960x300?text=4-960w 960w"
+          data-srcset="./imgs/carouselImgs/4.jpg"
             data-sizes="100vw">
         </div>
-        <div>
-          <img data-lazy="http://placehold.it/350x300?text=5-350w"
-            data-srcset="http://placehold.it/650x300?text=5-650w 650w, http://placehold.it/960x300?text=5-960w 960w"
-            data-sizes="100vw">
-        </div>
-        <div>
-          <!-- this slide should inherit the sizes attr from the parent slider -->
-          <img data-lazy="http://placehold.it/350x300?text=6-350w"
-            data-srcset="http://placehold.it/650x300?text=6-650w 650w, http://placehold.it/960x300?text=6-960w 960w">
-        </div>
+
       </section>
 
       <!--Slick Slider Carousel Start-->
