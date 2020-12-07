@@ -16,7 +16,7 @@ body{
     font-weight: bold;
     font-style: italic;
     color:#707070;
-    
+   
 }
 
 .headerCont ul {
@@ -45,10 +45,7 @@ body{
 {
     padding-top:20px;
     display: flex;
-    flex-direction: row;  
-    margin:0 auto;
-    width: 90%;
-    
+    flex-direction: column;  
 }
 
 .pageContainer ul {
@@ -187,70 +184,120 @@ width: 220px;
         vertical-align: middle;
         border-radius: 3px;
        }
+       .headline
+       {
+         
+         border-bottom: 1.5px solid #F4B95F;
+         font-size:35px;
+         color:#707070;
+         width:315px;
+         margin-left:5%;
+       }
+
+      .CardHeader
+      {
+        background-color: #F4B95F;
+        border: 1px solid #F4B95F;
+        width:700px;
+        font-weight: 500;
+        color:#707070;
+        height:25px;
+        line-height: 25px;
+        
+      }
+      .CardHeader .ProductName
+      {
+        padding-left: 10%;
+      }
+      .CardBody
+      {
+      width:700px;
+      border: 1px solid #70707038;
+      display: flex;
+      flex-direction: row;
+      }
+      .ProductImg{
+        width: 150px;height:200px;background-size:180px 280px;background-position: center;margin-left:7%;
+        }
+        .ProductDetail
+        {
+          
+          width: 400px;
+          margin-left:7%;
+          margin-top: 5%;
+          font-size: 13px;
+          line-height: 20px;
+          color:#707070;
+          height:130px;
+          
+          position: relative;
+        }
+        .DetailBottomContainer{
+          position:absolute; bottom:0;
+          
+          
+        }
+        .DetailBottomContainer button
+        {
+          color:#707070;
+          background-color: #F4B95F;
+          border:none;
+          border-radius: 5%;
+          padding-left: 10px;
+          padding-right: 10px;
+          padding-top:5px;
+          padding-bottom:5px;
+        }
+        .DetailBottomContainer button:focus{
+          
+          border:none;
+          outline:0;
+        }
+        .decraseBtn
+        {
+          margin-left:70px;
+        }
+      .DetailBottomContainer b
+      {
+        
+        font-weight: 500;
+        
+      }
+      .price
+      {
+        margin-left:70px;
+        font-size:14px;}
+      .CardContainer
+      {
+        margin-top:20px;
+      }
+      .CardContainer:nth-child(1)
+      {margin-top:1px;}
+      .ContentContainer
+      {
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+        width: fit-content;
+        
+      }
+      .PriceDiv
+      {
+        background-color: #F4B95F;
+        color:#707070;
+        font-weight: 500;
+        line-height: 30px;
+        border-radius: 5px;
+        padding:10px;
+        margin-left:20px;
+        margin-top:20px;
+      }
+      .Succe
+      {
+  color:white;
+  text-align: center;        
+        background: rgb(86,171,47);
+background: linear-gradient(180deg, rgba(86,171,47,1) 0%, rgba(145,209,84,1) 70%, rgba(207,233,175,1) 95%);
 
 
-input[type="button"] {
-  display: block;
-  margin: 200px auto 0 auto;
-  border-radius: 10px;
-  padding: 10px;
-  box-shadow: none;
-  border: none;
-  background-color: deepSkyBlue;
-  color: azure;
-}
-input[type="button"]:active, input[type="button"]:hover, input[type="button"]:focus {
-  outline: 0;
-}
-
-.alert-box {
-  border-style: solid;
-  border-width: 1px;
-  display: block;
-  width: 100%;
-  font-weight: normal;
-  margin-bottom: 1.25rem;
-  position: fixed;
-  z-index:999999;
-  top: 0;
-  padding: 0.875rem 1.5rem 0.875rem 0.875rem;
-  font-size: 0.8125rem;
-  background-color: #008cba;
-  border-color: #0078a0;
-  color: white;
-  box-shadow: 0px 1px 5px 0 darkslategrey;
-}
-
-.alert-box.success {
-  background-color: #F4B95F;
-  border-color: #F4B95F;
-  color: white;
-  text-align: center;
-  font-size: 20px;
-}
-.alert-box.success a{
-  text-decoration: none;
-    background-color: #F4B95F;
-    border-color: #F4B95F;
-    color: white;
-    text-align: center;
-    font-size: 20px;
-  
-}
-
-.alert-box.fail {
-  background-color: red;
-  border-color: red;
-  color: white;
-  text-align: center;
-  font-size: 20px;
-}
-.alert-box.fail a{
-  text-decoration: none;
-    background-color: red;
-    border-color: red;
-    color: white;
-    text-align: center;
-    font-size: 20px;
-  
-}
+      }

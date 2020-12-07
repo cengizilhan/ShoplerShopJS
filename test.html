@@ -1,4 +1,14 @@
-[
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <script>
+var data=[
 {
     "id": 1,
     "basket_piece":1,
@@ -116,3 +126,14 @@
   
   
 ]
+
+console.log("before");
+            console.log(data);            
+            //delete data[2];
+            data.splice(0,5);
+
+            console.log("after");
+            console.log(data);
+    </script>
+</body>
+</html>
