@@ -8,6 +8,17 @@ function notifyBar() {
     };
 }
 
+function NotBarUpdater(){
+    var storedNames = JSON.parse(localStorage.getItem("products"));
+    var pieceSum = 0;
+
+    for (x = 0; x < storedNames.length; x++) {
+        pieceSum += storedNames[x].basket_piece ;
+    }
+
+    return pieceSum; 
+      
+}
 
 function PriceSum() {
     var storedNames = JSON.parse(localStorage.getItem("products"));
