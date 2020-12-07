@@ -60,7 +60,7 @@
             if (data[i].category_id == categoryParse) {
               var htmlItem = '<div class="ShopItems"><div class="ShopItem" style="background: url(' + data[i].image +
                 ');background-size:150px 200px;"></div> ' + data[i].title + ' <p><b><i>' + data[i].price +
-                'TL</i></b></p><div class="addBasket" onClick="notifyBar()"><i class="fas fa-shopping-cart"></i> Sepete Ekle</div></div>';
+                'TL</i></b></p><div class="addBasket" onClick="notifyBar()"><i class="fas fa-shopping-cart"></i> Add to Cart</div></div>';
               $(appendItem).append(htmlItem);
             }
           }
