@@ -21,7 +21,7 @@
   <script>document.write('<script type="text/javascript" src="./js/basket.js?dev=' + Math.floor(Math.random() * 100) + '"\><\/script>');</script>
   <script>
     $(document).ready(function () {
-
+      
 
       ProductFilter();
       CategoryFill();
@@ -58,7 +58,7 @@
 
           for (i = 0; i < data.length; i++) {
             if (data[i].category_id == categoryParse) {
-              var htmlItem = '<div class="ShopItems"><div class="ShopItem" style="background: url(' + data[i].image +
+              var htmlItem = '<div class="ShopItems" ><div class="ShopItem" data-title="'+data[i].id+'" style="background: url(' + data[i].image +
               ');background-size:150px 200px;"></div> ' + data[i].title + ' <p><b><i>' + data[i].price +
               'TL</i></b></p><div class="addBasket" onClick="notifyBar()" data-title="' + data[i].id + '"><i class="fas fa-shopping-cart"></i> Add to Cart</div></div>';
             $(appendItem).append(htmlItem);
@@ -69,7 +69,7 @@
 
           for (i = 0; i < data.length; i++) {
               
-            var htmlItem = '<div class="ShopItems"><div class="ShopItem" style="background: url(' + data[i].image +
+            var htmlItem = '<div class="ShopItems" ><div class="ShopItem" data-title="'+data[i].id+'" style="background: url(' + data[i].image +
               ');background-size:150px 200px;"></div> ' + data[i].title + ' <p><b><i>' + data[i].price +
               'TL</i></b></p><div class="addBasket" onClick="notifyBar()" data-title="' + data[i].id + '"><i class="fas fa-shopping-cart"></i> Add to Cart</div></div>';
             $(appendItem).append(htmlItem);
@@ -95,11 +95,19 @@
 
       });
 
+   })
+
+
+   $(document).on("click", ".ShopItem", function () {
+      var selectedItem = $(this).data('title');
+
+    
+        
+        window.location.href = './productDetail.html?ProductId='+selectedItem+'';
 
 
 
-    })
-
+      });
   </script>
   <!--products javascript done-->
 
