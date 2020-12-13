@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shoplyer</title>
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/custom.css">
@@ -96,14 +96,15 @@ $(document).ready(function () {
       style="background-image:url('${data[flag].image}');
   background-size:270px 390px; background-position: center;
   width:244px;
-  height:370px;"
+  height:370px; cursor: pointer;"
       ></div>
       <div class="verticaldiv destrip">
         <h1>${data[flag].title}</h1>
         <p>${data[flag].description}</p>
         <h3>${data[flag].price} TL</h3>
         <button class="addcart"data-title="${data[flag].id}" onClick="notifyBar()" ><i class="fas fa-shopping-cart"></i> Sepete Ekle</button>
-      </div>
+        
+      </div><div class="bottomdiv"></div>
         `;
         $(Htmlitem).appendTo('.productContainer');
 
@@ -136,7 +137,7 @@ $(document).ready(function () {
   </div>
 
 
-  <hr style="width: 55%; margin-top:-1px;   border-top: 1px solid #dedede;">
+  <hr class="hrline">
   <div class="productContainer">
 <!--
     <div class="verticaldiv smallimg">

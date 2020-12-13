@@ -18,6 +18,11 @@ body{
     color:#707070;
    
 }
+.logo a {
+  text-decoration: none;
+  color:#707070;
+}
+
 
 .headerCont ul {
     list-style-type: none;

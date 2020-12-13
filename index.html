@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shoplyer</title>
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/custom.css">
@@ -21,7 +21,7 @@
   <script>document.write('<script type="text/javascript" src="./js/basket.js?dev=' + Math.floor(Math.random() * 100) + '"\><\/script>');</script>
   <script>
     $(document).ready(function () {
-      
+
 
       ProductFilter();
       CategoryFill();
@@ -34,7 +34,7 @@
       $.get("js/category.json", function (data) {
         var appendItem = $(".verticalNavigation ul");
         for (i = 0; i < data.length; i++) {
-          var htmlItem = '<li><a  href="' + data[i].link + '">' + data[i].color + '<i class="fas fa-angle-double-right"></i></a></li>';
+          var htmlItem = '<li class="categoryLi"><a  href="' + data[i].link + '">' + data[i].color + '<i class="fas fa-angle-double-right"></i></a></li>';
           $(appendItem).append(htmlItem);
         }
       });
@@ -58,18 +58,18 @@
 
           for (i = 0; i < data.length; i++) {
             if (data[i].category_id == categoryParse) {
-              var htmlItem = '<div class="ShopItems" ><div class="ShopItem" data-title="'+data[i].id+'" style="background: url(' + data[i].image +
-              ');background-size:150px 200px;"></div> ' + data[i].title + ' <p><b><i>' + data[i].price +
-              'TL</i></b></p><div class="addBasket" onClick="notifyBar()" data-title="' + data[i].id + '"><i class="fas fa-shopping-cart"></i> Add to Cart</div></div>';
-            $(appendItem).append(htmlItem);
+              var htmlItem = '<div class="ShopItems" ><div class="ShopItem" data-title="' + data[i].id + '" style="background: url(' + data[i].image +
+                ');background-size:150px 200px;"></div> ' + data[i].title + ' <p><b><i>' + data[i].price +
+                'TL</i></b></p><div class="addBasket" onClick="notifyBar()" data-title="' + data[i].id + '"><i class="fas fa-shopping-cart"></i> Add to Cart</div></div>';
+              $(appendItem).append(htmlItem);
             }
           }
         }
         else {
 
           for (i = 0; i < data.length; i++) {
-              
-            var htmlItem = '<div class="ShopItems" ><div class="ShopItem" data-title="'+data[i].id+'" style="background: url(' + data[i].image +
+
+            var htmlItem = '<div class="ShopItems" ><div class="ShopItem" data-title="' + data[i].id + '" style="background: url(' + data[i].image +
               ');background-size:150px 200px;"></div> ' + data[i].title + ' <p><b><i>' + data[i].price +
               'TL</i></b></p><div class="addBasket" onClick="notifyBar()" data-title="' + data[i].id + '"><i class="fas fa-shopping-cart"></i> Add to Cart</div></div>';
             $(appendItem).append(htmlItem);
@@ -95,19 +95,19 @@
 
       });
 
-   })
+    })
 
 
-   $(document).on("click", ".ShopItem", function () {
+    $(document).on("click", ".ShopItem", function () {
       var selectedItem = $(this).data('title');
 
-    
-        
-        window.location.href = './productDetail.html?ProductId='+selectedItem+'';
+
+
+      window.location.href = './productDetail.html?ProductId=' + selectedItem + '';
 
 
 
-      });
+    });
   </script>
   <!--products javascript done-->
 
@@ -123,53 +123,102 @@
     }
   </script>
   <div class="headerCont">
-    <span class="logo">Shoplyer</span>
+    <span class="logo"><a href="./index.html">Shoplyer</a></span>
 
     <ul>
       <li><a href="./index.html">Anasayfa</a></li>
       <li><a href="#">Hesabım</a></li>
       <li><a href="./basket.html">Sepetim</a>
         <span class="NotBarContainer"></span>
-        
-            
-          </div> </li>
 
-    </ul>
+
+  </div>
+  </li>
+
+  </ul>
   </div>
 
   <script>
 
-NotBarFill();
+    NotBarFill();
 
     function NotBarFill() {
       var NotInt;
       NotInt = NotBarUpdater();
-      htmlitem=`<span class="NotBar" id="hi">${NotInt}</span>`;
-      var AppendSelector = $(".NotBarContainer"); 
+      htmlitem = `<span class="NotBar" id="hi">${NotInt}</span>`;
+      var AppendSelector = $(".NotBarContainer");
       $(AppendSelector).empty();
 
-      if (NotInt>0)
-      {
-        
-      
-      $(htmlitem).appendTo('.NotBarContainer');
-      $(".NotBar").addClass('flash');
-      setTimeout(function () {
-        $('.NotBar').removeClass('flash');
-      }, 1000);
+      if (NotInt > 0) {
+
+
+        $(htmlitem).appendTo('.NotBarContainer');
+        $(".NotBar").addClass('flash');
+        setTimeout(function () {
+          $('.NotBar').removeClass('flash');
+        }, 1000);
       }
-      else
-      {
+      else {
 
       }
 
-      }
+    }
 
   </script>
 
   <div class="pageContainer">
     <div class="verticalNavigation">
       <ul>
+        <li class="MenuButton "><span class="checkboxicon">Kategoriler</span><i class="fas fa-bars checkboxicon "></i></li>
+        <script>
+        flag=0;      
+          $(document).ready(function () {
+           $(".checkboxicon").click(function() { 
+  
+             
+             if (flag==0)
+             {
+               //alert("1");
+               flag=1;
+               $( ".verticalNavigation ul .categoryLi" ).css("display","flow-root");
+             }
+              else if (flag==1)
+             {
+              //alert("null");
+               flag=0;
+               $( ".verticalNavigation ul .categoryLi" ).css("display","none");
+             } 
+             
+             
+  
+  /*          if (this.checked) {
+                $("#showmenu").prop('checked', false);
+                alert("false");
+              }
+              else {  
+              $("#showmenu").prop('checked', true);
+              alert("true");
+            }
+            });
+
+*/            
+             
+            
+             
+
+           });
+           
+            /*$("#showmenu").change(function () {
+              if (this.checked) {
+                alert("checked");
+              }
+              else { alert("un"); }
+            });*/
+
+
+
+          });
+        </script>
         <!--  
 Data come from below section as javascript / json
       <li><a href="#news">Diğer Kategoriler<i class="fas fa-angle-double-right"></i></a></li>-->
@@ -178,7 +227,7 @@ Data come from below section as javascript / json
     </div>
 
     <div class="content">
-      <hr style="width: 55%; margin-top:-1px;   border-top: 1px solid #dedede;">
+      <hr class="hrline" >
       <section class="lazy slider" data-sizes="50vw" style="margin-top:20px;">
 
         <div>
