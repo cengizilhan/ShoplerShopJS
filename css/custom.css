@@ -459,14 +459,16 @@ cursor: pointer;
 
 @media screen and (min-device-width: 768px) {
   .MenuButton {  display:none; }
-  .categoryLi  {  display:block; }
+  .categoryLi  {  display:block; ; }
 }
 
 
 @media screen and (max-device-width: 768px) {
   .MenuButton {  display:flow-root;
-  margin:0 auto; }
-  .categoryLi  {  display:none; }
+  margin:0 auto;
+width:86%; }
+  .categoryLi  {  display:none; ; 
+}
   .pageContainer
 {
     padding-top:20px;
@@ -513,7 +515,8 @@ cursor: pointer;
   margin: 0 auto;
   font-size: 35px;
   padding-bottom: 20px;
-  width: 90%;
+  width:fit-content;
+  margin-left:29px;
 }
 
 .headerCont ul li {
@@ -527,7 +530,7 @@ cursor: pointer;
   
 }
 .pageContainer ul {
- width:300px; 
+ width:100%; 
 }
 .verticalNavigation ul li {
   margin: 0 auto !important;
@@ -620,6 +623,8 @@ margin-left:15px;
 {
   width:fit-content;
 }
-
-
+.pageContainer li a {
+ 
+  width:86%;    
+}
 }
