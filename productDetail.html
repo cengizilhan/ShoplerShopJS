@@ -287,7 +287,8 @@
 
   <div class="tabscontainer" >
 <script>
- 
+document.getElementById("openlondon").click();
+
   function openCity(evt, cityName) {
   // Declare all variables
   var i, tabcontent, tablinks;
@@ -311,7 +312,7 @@
 </script>
     <!-- Tab links -->
 <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'London')">Ürün Açıklaması</button>
+  <button class="tablinks" id="openlondon" onclick="openCity(event, 'London')">Ürün Açıklaması</button>
   <button class="tablinks" onclick="openCity(event, 'Paris')">Yorumlar</button>
   <button class="tablinks" onclick="openCity(event, 'Tokyo')">İade Koşulları</button>
 </div>
