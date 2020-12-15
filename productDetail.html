@@ -23,67 +23,66 @@
 <script>
 
 
-      function NotBarFill() {
-        var NotInt;
-        NotInt = NotBarUpdater();
-        htmlitem=`<span class="NotBar" id="hi">${NotInt}</span>`;
-        var AppendSelector = $(".NotBarContainer"); 
-        $(AppendSelector).empty();
-  
-        if (NotInt>0)
-        {
-          
-        
-        $(htmlitem).appendTo('.NotBarContainer');
-        $(".NotBar").addClass('flash');
-        setTimeout(function () {
-          $('.NotBar').removeClass('flash');
-        }, 1000);
-        }
-        else
-        {
-  
-        }
-  
-        }
-  
-    </script>
+  function NotBarFill() {
+    var NotInt;
+    NotInt = NotBarUpdater();
+    htmlitem = `<span class="NotBar" id="hi">${NotInt}</span>`;
+    var AppendSelector = $(".NotBarContainer");
+    $(AppendSelector).empty();
+
+    if (NotInt > 0) {
+
+
+      $(htmlitem).appendTo('.NotBarContainer');
+      $(".NotBar").addClass('flash');
+      setTimeout(function () {
+        $('.NotBar').removeClass('flash');
+      }, 1000);
+    }
+    else {
+
+    }
+
+  }
+
+</script>
 <script>
-  
+
   $(document).on("click", ".addcart", function () {
-  var selectedItem = $(this).data('title');
+    var selectedItem = $(this).data('title');
 
-      $.get("./js/products.json", function (data) {
-        AddBasket(data[selectedItem - 1]);
-        NotBarFill(); });
-        
-
-
-
-      });
-           
+    $.get("./js/products.json", function (data) {
+      AddBasket(data[selectedItem - 1]);
+      NotBarFill();
+    });
 
 
-$(document).ready(function () {
-  NotBarFill();
-  
+
+
+  });
+
+
+
+  $(document).ready(function () {
+    NotBarFill();
+
 
     var urlstring = window.location.href;
     var productid = urlstring.substr(urlstring.indexOf("ProductId=") + 10, 2);
     console.log(productid);
     var flag = null;
     $.get("./js/products.json", function (data) {
-      
+
       console.log(data);
-      
+
       for (i = 0; i < data.length; i++) {
         console.log(i);
-        if (data[i].id==productid){
-          flag=i;
-        }  
+        if (data[i].id == productid) {
+          flag = i;
         }
-        console.log(flag);
-        var Htmlitem = `<div class="verticaldiv smallimg">
+      }
+      console.log(flag);
+      var Htmlitem = `<div class="verticaldiv smallimg">
         <div class="tumpimg"
         style="
         background-image:url('${data[flag].image}');
@@ -106,10 +105,10 @@ $(document).ready(function () {
         
       </div><div class="bottomdiv"></div>
         `;
-        $(Htmlitem).appendTo('.productContainer');
+      // $(Htmlitem).appendTo('.productContainer');
 
-      
-      });
+
+    });
 
   });
 
@@ -138,9 +137,18 @@ $(document).ready(function () {
 
 
   <hr class="hrline">
+  <div class="productContainer CategoryBar">
+    <h5>Ana Sayfa \ Bahçe ve Yapı Market</h5>
+  </div>
   <div class="productContainer">
-<!--
+
     <div class="verticaldiv smallimg">
+      <div class="tumpimg">
+
+      </div>
+      <div class="tumpimg">
+
+      </div>
       <div class="tumpimg">
 
       </div>
@@ -149,17 +157,187 @@ $(document).ready(function () {
     <div class="verticaldiv destrip">
 
       <h1>Fakir Ütü</h1>
-      <p>Amet cupidatat sint ut ut labore laborum nisi sint fugiat proident. Est duis qui ipsum culpa laboris mollit
-        dolore ipsum aute nostrud et excepteur ut id. Ullamco laboris do sit quis aute culpa esse excepteur officia.
-        Minim culpa sunt tempor.</p>
+      <h5>Ürün Kodu:FKR 336</h5>
+      <h4>Bosh</h4>
       <h3>300 TL</h3>
+      <div class="CargoPrice"><i class="fas fa-shipping-fast"></i> Ücretsiz Kargo</div>
+      <h6>Tahmini Kargo Gönderim Süresi: Bugün</h6>
       <button><i class="fas fa-shopping-cart"></i> Sepete Ekle</button>
-    </div>
-  </div>-->
 
+      <!---   <p>Amet cupidatat sint ut ut labore laborum nisi sint fugiat proident. Est duis qui ipsum culpa laboris mollit
+        dolore ipsum aute nostrud et excepteur ut id. Ullamco laboris do sit quis aute culpa esse excepteur officia.
+        Minim culpa sunt tempor.</p>-->
+
+
+    </div>
+    <div class="verticaldiv starcontainer">
+      <div class="stardiv"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+          class="fas fa-star"></i><i class="fas fa-star"></i>
+        <p>Değerlendirme</p>
+      </div>
+    </div>
 
   </div>
 
+  <div class="productContainer otherproducts">
+    <h1>Diğer Ürünler</h1>
+  </div>
+  <script>
+    $(document).ready(function(){
+      setInterval(function(){ 
+        $('.productSliderCont').animate( { scrollLeft: '+=300' }, 1000);
+}, 5000);
+      
+});
+
+
+  </script>
+
+  <div class="productContainer">
+    <div class="arrowleft"> <i class="fas fa-chevron-left"></i> </div>
+    <div class="productSliderCont">
+     
+
+      <div class="productItem">
+        <div class="ItemImg"></div>
+        <div class="ItemDetails">
+          <h1>Fakir Ütü</h1>
+          <h2>300 TL</h2>
+        </div>
+      </div>
+
+         
+      <div class="productItem">
+        <div class="ItemImg"></div>
+        <div class="ItemDetails">
+          <h1>Fakir Ütü</h1>
+          <h2>300 TL</h2>
+        </div>
+      </div>
+
+         
+      <div class="productItem">
+        <div class="ItemImg"></div>
+        <div class="ItemDetails">
+          <h1>Fakir Ütü</h1>
+          <h2>300 TL</h2>
+        </div>
+      </div>
+      
+      <div class="productItem">
+        <div class="ItemImg"></div>
+        <div class="ItemDetails">
+          <h1>Fakir Ütü</h1>
+          <h2>300 TL</h2>
+        </div>
+      </div>
+      
+
+      <div class="productItem">
+        <div class="ItemImg"></div>
+        <div class="ItemDetails">
+          <h1>Fakir Ütü</h1>
+          <h2>300 TL</h2>
+        </div>
+      </div>
+      
+
+      <div class="productItem">
+        <div class="ItemImg"></div>
+        <div class="ItemDetails">
+          <h1>Fakir Ütü</h1>
+          <h2>300 TL</h2>
+        </div>
+      </div>
+
+      <div class="productItem">
+        <div class="ItemImg"></div>
+        <div class="ItemDetails">
+          <h1>Fakir Ütü</h1>
+          <h2>300 TL</h2>
+        </div>
+      </div>
+
+      <div class="productItem">
+        <div class="ItemImg"></div>
+        <div class="ItemDetails">
+          <h1>Fakir Ütü</h1>
+          <h2>300 TL</h2>
+        </div>
+      </div>
+
+      <div class="productItem">
+        <div class="ItemImg"></div>
+        <div class="ItemDetails">
+          <h1>Fakir Ütü</h1>
+          <h2>300 TL</h2>
+        </div>
+      </div>
+      
+   
+    
+
+
+      
+    </div>
+    <div class="arrowright"> <i class="fas fa-chevron-right"></i> </div>
+  </div>
+  
+
+
+  <div class="tabscontainer" >
+<script>
+ 
+  function openCity(evt, cityName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+    <!-- Tab links -->
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'London')">Ürün Açıklaması</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Yorumlar</button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')">İade Koşulları</button>
+</div>
+
+<!-- Tab content -->
+<div id="London" class="tabcontent">
+  <h3>London</h3>
+  <p>London is the capital city of England.
+    Ea aute exercitation ea velit minim. Aliqua officia sint nulla eiusmod. Non tempor pariatur consequat incididunt nisi velit. Culpa nulla adipisicing labore ea et tempor voluptate deserunt duis sunt labore. Veniam minim eu excepteur dolore incididunt sint labore.
+  </p>
+</div>
+
+<div id="Paris" class="tabcontent">
+  <h3>Paris</h3>
+  <p>Paris is the capital of France.
+    Ea aute exercitation ea velit minim. Aliqua officia sint nulla eiusmod. Non tempor pariatur consequat incididunt nisi velit. Culpa nulla adipisicing labore ea et tempor voluptate deserunt duis sunt labore. Veniam minim eu excepteur dolore incididunt sint labore.
+  </p>
+</div>
+
+<div id="Tokyo" class="tabcontent">
+  <h3>Tokyo</h3>
+  <p>
+    Ea aute exercitation ea velit minim. Aliqua officia sint nulla eiusmod. Non tempor pariatur consequat incididunt nisi velit. Culpa nulla adipisicing labore ea et tempor voluptate deserunt duis sunt labore. Veniam minim eu excepteur dolore incididunt sint labore.Tokyo is the capital of Japan.</p>
+</div>
+
+  </div>
 
 
 
