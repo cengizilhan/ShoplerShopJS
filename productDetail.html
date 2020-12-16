@@ -287,7 +287,12 @@
 
   <div class="tabscontainer" >
 <script>
-document.getElementById("openlondon").click();
+// Get the element with id="defaultOpen" and click on it
+$( document ).ready(function() {
+  document.getElementById("openlondon").click();
+});
+
+
 
   function openCity(evt, cityName) {
   // Declare all variables
@@ -309,6 +314,7 @@ document.getElementById("openlondon").click();
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
+
 </script>
     <!-- Tab links -->
 <div class="tab">
