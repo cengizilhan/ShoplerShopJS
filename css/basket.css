@@ -6,7 +6,9 @@ body{
     display: flex;
     flex-direction: row;  
     margin:0 auto;
-    width: 90%;
+    
+    width: 100%;
+    max-width: 1000px;
     
     
 }
@@ -50,7 +52,12 @@ body{
 {
     padding-top:20px;
     display: flex;
-    flex-direction: column;  
+    flex-direction: column; 
+    
+    width: 100%;
+    max-width: 1000px;
+    margin:0 auto;
+    
 }
 
 .pageContainer ul {
@@ -100,7 +107,8 @@ width: 220px;
     }
     .content{
       margin: 0 auto;
-      width: 900px;
+      width: 100%;
+      max-width: 1000px;
       margin-left:200px;
       
      margin-top:-21px; 
@@ -165,6 +173,7 @@ width: 220px;
           
           margin:0 auto;
           background: url(/imgs/iphone12-1.png);
+          
           background-size:150px 200px;
       }
       .ShopItems b
@@ -275,6 +284,7 @@ width: 220px;
       .CardContainer
       {
         margin-top:20px;
+        width:fit-content !important;
       }
       .CardContainer:nth-child(1)
       {margin-top:1px;}

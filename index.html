@@ -87,7 +87,8 @@
     $(document).on("click", ".addBasket", function () {
       var selectedItem = $(this).data('title');
 
-      $.get("js/products.json", function (data) {
+      $.get("./js/products.json", function (data) {
+    
         AddBasket(data[selectedItem - 1]);
         NotBarFill();
 
@@ -175,7 +176,10 @@
           $(document).ready(function () {
            $(".checkboxicon").click(function() { 
   
-             
+                             
+      //var beverage = (age >= 21) ? "Beer" : "Juice"; 
+
+            
              if (flag==0)
              {
                //alert("1");
@@ -184,40 +188,14 @@
              }
               else if (flag==1)
              {
-              //alert("null");
+          
                flag=0;
                $( ".verticalNavigation ul .categoryLi" ).css("display","none");
              } 
              
-             
-  
-  /*          if (this.checked) {
-                $("#showmenu").prop('checked', false);
-                alert("false");
-              }
-              else {  
-              $("#showmenu").prop('checked', true);
-              alert("true");
-            }
-            });
-
-*/            
-             
-            
-             
-
-           });
+     });
            
-            /*$("#showmenu").change(function () {
-              if (this.checked) {
-                alert("checked");
-              }
-              else { alert("un"); }
-            });*/
-
-
-
-          });
+  });
         </script>
         <!--  
 Data come from below section as javascript / json

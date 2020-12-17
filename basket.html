@@ -71,7 +71,8 @@
       
 
      function BasketFill() {
-      var data=ReadLocalStorage(); 
+     
+      var data=getFromStorage("products");
       
       if (data.length === 0) { 
         var htmlEmpty=`<div class="CardContainer">
