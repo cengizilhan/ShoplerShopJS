@@ -52,13 +52,14 @@
         var categoryParse = urlstring.substr(urlstring.indexOf("=") + 1, 1);
         var appendItem = $(".ShopItemsContainer");
 
-
+        
 
         if (urlstring.indexOf("category") != -1) {
 
           for (i = 0; i < data.length; i++) {
             if (data[i].category_id == categoryParse) {
-              var htmlItem = '<div class="ShopItems" ><div class="ShopItem" data-title="' + data[i].id + '" style="background: url(' + data[i].image +
+              var imageArr = data[i].image.split(",");
+              var htmlItem = '<div class="ShopItems" ><div class="ShopItem" data-title="' + data[i].id + '" style="background: url(' + imageArr[0] +
                 ');background-size:150px 200px;"></div> ' + data[i].title + ' <p><b><i>' + data[i].price +
                 'TL</i></b></p><div class="addBasket" onClick="notifyBar()" data-title="' + data[i].id + '"><i class="fas fa-shopping-cart"></i> Add to Cart</div></div>';
               $(appendItem).append(htmlItem);
@@ -68,8 +69,9 @@
         else {
 
           for (i = 0; i < data.length; i++) {
+            var imageArr = data[i].image.split(",");
 
-            var htmlItem = '<div class="ShopItems" ><div class="ShopItem" data-title="' + data[i].id + '" style="background: url(' + data[i].image +
+            var htmlItem = '<div class="ShopItems" ><div class="ShopItem" data-title="' + data[i].id + '" style="background: url(' + imageArr[0]  +
               ');background-size:150px 200px;"></div> ' + data[i].title + ' <p><b><i>' + data[i].price +
               'TL</i></b></p><div class="addBasket" onClick="notifyBar()" data-title="' + data[i].id + '"><i class="fas fa-shopping-cart"></i> Add to Cart</div></div>';
             $(appendItem).append(htmlItem);

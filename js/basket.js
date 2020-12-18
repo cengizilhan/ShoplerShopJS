@@ -72,12 +72,8 @@ function CountChanger(id, operation) {
   }
 }
 
-  
-  
- 
-                  
-      //var beverage = (age >= 21) ? "Beer" : "Juice"; 
-
+     
+   
 
 function AddBasket(pushItem) {
   if ("products" in localStorage) {
@@ -121,7 +117,73 @@ function setToStorage(itemKey, json) {
   }
 }
 
-function getFromStorage(itemKey) {
+function getFromStorage(itemKey) { //session-localstorage-cache//
   var storedNames = JSON.parse(localStorage.getItem(itemKey));
   return storedNames;
-}
+} 
+
+function FillProductToOwl() {
+ 
+  var htmlitemsum="";
+  $.get("js/products.json", function (data) {
+  
+  $.each(data, function(index, value) {
+      var imageArr = value.image.split(",");
+      
+       htmlitemsum+=`
+<div  onclick="location.href='./productDetail.html?ProductId=${index+1}','mywindow'" ><div class="ProdImg"   style="background: url('${imageArr[0]}');  background-size:100px 150px;" > </div>
+        <div>
+          <h2>${value.title}</h2> 
+          <h3>${value.price}</h3>
+        </div>
+      </div>`;
+    }); 
+  
+    console.log(htmlitemsum);
+    var test="<p>ASDASDASDSSSSSSSSSSSSSSSSSSSSSSSSS</p>"
+     
+    $(htmlitemsum).appendTo('#owlcontainer');
+
+    var owl = $('.owl-carousel');
+    owl.owlCarousel({
+  
+      loop: true,
+      margin: 10,
+      autoplay: true,
+      autoplayTimeout: 5000,
+      autoplayHoverPause: true,
+      navText:["<i class='fa fa-angle-left' ></i>","<i class='fa fa-angle-right' ></i>"],
+      nav: true,
+      responsive:{
+        0:{
+            items:1
+        },
+           // breakpoint from 600 up
+        600:{
+            items:2
+        },
+        1000:{
+            items:4
+        }
+    }
+    });
+    $(".owl-carousel").owlCarousel();
+
+
+
+    //$('.owl-carousel').trigger('add.owl.carousel', [htmlitemsum]);
+    
+    
+});
+
+
+
+
+ }
+
+
+  
+ 
+
+             
+

@@ -71,56 +71,73 @@
 
 
 
-  $(document).ready(function () {
+    function FillProduct(){
     NotBarFill();
+    
 
+      var urlstring = window.location.href;
+      var productid = urlstring.substr(urlstring.indexOf("ProductId=") + 10, 2);
+      console.log(productid);
+      var flag = null;
+      $.get("./js/products.json", function (data) {
 
-    var urlstring = window.location.href;
-    var productid = urlstring.substr(urlstring.indexOf("ProductId=") + 10, 2);
-    console.log(productid);
-    var flag = null;
-    $.get("./js/products.json", function (data) {
-
-      console.log(data);
-
-      for (i = 0; i < data.length; i++) {
-        console.log(i);
-        if (data[i].id == productid) {
-          flag = i;
-        }
-      }
-      console.log(flag);
-      var Htmlitem = `<div class="verticaldiv smallimg">
-        <div class="tumpimg"
-        style="
-        background-image:url('${data[flag].image}');
-  background-size:125px 160px;background-position: center;
-  width:90px;
-  height:130px;">
-        </div>
-      </div>
-      <div class="verticaldiv bigimg"
-      style="background-image:url('${data[flag].image}');
-  background-size:270px 390px; background-position: center;
-  width:244px;
-  height:370px; cursor: pointer;"
-      ></div>
-      <div class="verticaldiv destrip">
-        <h1>${data[flag].title}</h1>
-        <p>${data[flag].description}</p>
-        <h3>${data[flag].price} TL</h3>
-        <button class="addcart"data-title="${data[flag].id}" onClick="notifyBar()" ><i class="fas fa-shopping-cart"></i> Sepete Ekle</button>
+     
         
-      </div><div class="bottomdiv"></div>
-        `;
-      // $(Htmlitem).appendTo('.productContainer');
 
 
-    });
+        for (i = 0; i < data.length; i++) {
+          console.log(i);
+          if (data[i].id == productid) {
+            flag = i;
+          }
+        }
+        
 
-  });
+        var imageArr = data[flag].image.split(",");
+        
+        var Htmlitem = `
+        <div class="verticaldiv smallimg">
+      
+      
+        
+    <div class="verticaldiv smallimg" id="tumpimgs">
+
+      </div>
+   
+      <a data-fancybox="gallery" href="${imageArr[0]}">  <div  class="tumpimg" style="background-image:url('${imageArr[0]}'" ></div></a>
+
+      <a data-fancybox="gallery" href="${imageArr[1]}">  <div class="tumpimg" style="background-image:url('${imageArr[1]}'"></div></a>
+
+      
+      <a data-fancybox="gallery" href="${imageArr[2]}">  <div class="tumpimg" style="background-image:url('${imageArr[2]}'"></div></a>
+
+</div>
+<a data-fancybox="gallery" href="${imageArr[0]}"> <div class="verticaldiv bigimg"  style="background-image:url('${imageArr[0]}'"></div></a>
+
+<div class="verticaldiv destrip">
+
+<h1>${data[flag].title} </h1>
+<h5>Ürün Kodu:FKR 336</h5>
+<h4>Bosh</h4>
+<h3>${data[flag].price} TL</h3>
+<div class="CargoPrice"><i class="fas fa-shipping-fast"></i> Ücretsiz Kargo</div>
+<h6>Tahmini Kargo Gönderim Süresi: Bugün</h6>
+<button class="addcart" data-title="${data[flag].id}" onClick="notifyBar()" ><i class="fas fa-shopping-cart"></i> Sepete Ekle</button>
 
 
+
+</div>
+<div class="verticaldiv starcontainer">
+<div class="stardiv"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+    class="fas fa-star"></i><i class="fas fa-star"></i>
+  <p>Değerlendirme</p>
+</div>
+</div>`;
+        $(Htmlitem).appendTo('#fillContainer');
+
+      })
+
+    }
 
 
 </script>
@@ -154,26 +171,30 @@
   <div class="productContainer CategoryBar">
     <script>
 
-      
-      $(document).ready(function () {
 
+  $(document).ready(function () {
 
-//background img urls add to div "href" attr for pop up gallery.//
-        $("#tumpimgs .tumpimg").each(function (e) {
-           var item = $('.tumpimg').eq(e);
-          item.attr("href", item.css("background-image").replace(/^url\(["']?/, '').replace(/["']?\)$/, ''));
-})
+   
+    FillProductToOwl();
+  
+    FillProduct();
 
-$('.bigimg').attr("href",$('.bigimg').css("background-image").replace(/^url\(["']?/, '').replace(/["']?\)$/, ''));
+    //background img urls add to div "href" attr for pop up gallery.//
+    $("#tumpimgs .tumpimg").each(function (e) {
+      var item = $('.tumpimg').eq(e);
+      item.attr("href", item.css("background-image").replace(/^url\(["']?/, '').replace(/["']?\)$/, ''));
+    })
 
-/////
-   });
+    $('.bigimg').attr("href", $('.bigimg').css("background-image").replace(/^url\(["']?/, '').replace(/["']?\)$/, ''));
+
+    /////
+  });
 
     </script>
     <h5>Ana Sayfa \ Bahçe ve Yapı Market</h5>
   </div>
-  <div class="productContainer">
-
+  <div class="productContainer" id="fillContainer">
+    <!--
     <div class="verticaldiv smallimg" id="tumpimgs">
 
       <div data-fancybox="gallery" class="tumpimg">
@@ -198,9 +219,6 @@ $('.bigimg').attr("href",$('.bigimg').css("background-image").replace(/^url\(["'
       <h6>Tahmini Kargo Gönderim Süresi: Bugün</h6>
       <button><i class="fas fa-shopping-cart"></i> Sepete Ekle</button>
 
-      <!---   <p>Amet cupidatat sint ut ut labore laborum nisi sint fugiat proident. Est duis qui ipsum culpa laboris mollit
-        dolore ipsum aute nostrud et excepteur ut id. Ullamco laboris do sit quis aute culpa esse excepteur officia.
-        Minim culpa sunt tempor.</p>-->
 
 
     </div>
@@ -210,96 +228,22 @@ $('.bigimg').attr("href",$('.bigimg').css("background-image").replace(/^url\(["'
         <p>Değerlendirme</p>
       </div>
     </div>
-
+-->
   </div>
 
   <div class="productContainer otherproducts">
     <h1>Diğer Ürünler</h1>
   </div>
 
-  <script>$(document).ready(function () {
-      var owl = $('.owl-carousel');
-      owl.owlCarousel({
-        items: 4,
-        loop: true,
-        margin: 10,
-        autoplay: true,
-        autoplayTimeout: 5000,
-        autoplayHoverPause: true,
-        nav: true,
-        navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>']
-      });
-      $(".owl-carousel").owlCarousel();
 
-
-
-    });
-
-
-
-  </script>
   <div class="productContainer">
 
-    <div class="owl-carousel">
-      <div>
-        <div class="ProdImg"></div>
-        <div>
-          <h2>Fakir Ütü</h2>
-          <h3>300 TL</h3>
-        </div>
-      </div>
-
-      <div>
-        <div class="ProdImg"></div>
-        <div>
-          <h2>Fakir Ütü</h2>
-          <h3>300 TL</h3>
-        </div>
-      </div>
-
-
-      <div>
-        <div class="ProdImg"></div>
-        <div>
-          <h2>Fakir Ütü</h2>
-          <h3>300 TL</h3>
-        </div>
-      </div>
-
-
-      <div>
-        <div class="ProdImg"></div>
-        <div>
-          <h2>Fakir Ütü</h2>
-          <h3>300 TL</h3>
-        </div>
-      </div>
+    <div class="owl-carousel" id="owlcontainer">
+   
 
 
 
-      <div>
-        <div class="ProdImg"></div>
-        <div>
-          <h2>Fakir Ütü</h2>
-          <h3>300 TL</h3>
-        </div>
-      </div>
-
-
-
-      <div>
-        <div class="ProdImg"></div>
-        <div>
-          <h2>Fakir Ütü</h2>
-          <h3>300 TL</h3>
-        </div>
-      </div>
-
-
-
-
-
-    </div>
+  </div>
 
 
   </div>
@@ -310,33 +254,33 @@ $('.bigimg').attr("href",$('.bigimg').css("background-image").replace(/^url\(["'
     <script>
 
 
-      $(document).ready(function () {
-        document.getElementById("defaultopen").click();
-      });
+        $(document).ready(function () {
+          document.getElementById("defaultopen").click();
+        });
 
 
 
-      function openCity(evt, cityName) {
-        // Declare all variables
-        var i, tabcontent, tablinks;
+        function openCity(evt, cityName) {
+          // Declare all variables
+          var i, tabcontent, tablinks;
 
-        // Get all elements with class="tabcontent" and hide them
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-          tabcontent[i].style.display = "none";
+          // Get all elements with class="tabcontent" and hide them
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+
+          // Get all elements with class="tablinks" and remove the class "active"
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+
+          // Show the current tab, and add an "active" class to the button that opened the tab
+          document.getElementById(cityName).style.display = "block";
+          evt.currentTarget.className += " active";
+
         }
-
-        // Get all elements with class="tablinks" and remove the class "active"
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-          tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-
-        // Show the current tab, and add an "active" class to the button that opened the tab
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " active";
-
-      }
     </script>
     <!-- Tab links -->
     <div class="tab">

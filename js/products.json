@@ -6,7 +6,7 @@
     "price": 109.95,
     "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
     "category_id": 9,
-    "image": "./imgs/products/bagg.jpg"
+    "image": "./imgs/products/bagg.jpg,./imgs/products/bagg2.jpg,./imgs/products/bagg3.jpg"
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "price": 1300,
     "description": "Commodo id sit ad adipisicing nostrud incididunt eu enim non consectetur duis incididunt deserunt laborum.",
     "category_id": 5,
-    "image": "./imgs/products/iphone12-red.png"
+    "image": "./imgs/products/iphone12-red.png,./imgs/products/bagg2.jpg,./imgs/products/bagg3.jpg"
   }
   ,
   {
@@ -25,7 +25,7 @@
     "price": 1250,
     "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
     "category_id": 5,
-    "image": "./imgs/products/iphone11-green.png"
+    "image": "./imgs/products/iphone11-green.png,./imgs/products/bagg2.jpg,./imgs/products/bagg3.jpg"
   }
   ,
   {
@@ -35,7 +35,7 @@
     "price": 1499,
     "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
     "category_id": 6,
-    "image": "./imgs/products/ipad.png"
+    "image": "./imgs/products/ipad.png,./imgs/products/bagg2.jpg,./imgs/products/bagg3.jpg"
   },
   {
     "id": 5,
@@ -44,7 +44,7 @@
     "price": 650,
     "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
     "category_id": 8,
-    "image": "./imgs/products/ayakkabi1.png"
+    "image": "./imgs/products/ayakkabi1.png,./imgs/products/bagg2.jpg,./imgs/products/bagg3.jpg"
   },
   {
     "id": 6,
@@ -53,7 +53,7 @@
     "price": 701,
     "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
     "category_id": 0,
-    "image": "./imgs/products/utuf.png"
+    "image": "./imgs/products/utuf.png,./imgs/products/bagg2.jpg,./imgs/products/bagg3.jpg"
   },
   {
     "id": 7,
@@ -62,7 +62,7 @@
     "price": 864,
     "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
     "category_id": 8,
-    "image": "./imgs/products/punch.png"
+    "image": "./imgs/products/punch.png,./imgs/products/bagg2.jpg,./imgs/products/bagg3.jpg"
   },
   {
     "id": 8,
@@ -71,7 +71,7 @@
     "price": 2500,
     "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
     "category_id": 7,
-    "image": "./imgs/products/cadir.png"
+    "image": "./imgs/products/cadir.png,./imgs/products/bagg2.jpg,./imgs/products/bagg3.jpg"
   },
   {
     "id": 9,
@@ -80,7 +80,7 @@
     "price": 1320,
     "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
     "category_id": 4,
-    "image": "./imgs/products/masa.png"
+    "image": "./imgs/products/masa.png,./imgs/products/bagg2.jpg,./imgs/products/bagg3.jpg"
   },
   {
     "id": 10,
@@ -89,7 +89,7 @@
     "price": 1320,
     "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
     "category_id": 3,
-    "image": "./imgs/products/buzdolabi.png"
+    "image": "./imgs/products/buzdolabi.png,./imgs/products/bagg2.jpg,./imgs/products/bagg3.jpg"
   },
   {
     "id": 11,
@@ -98,7 +98,7 @@
     "price": 2300,
     "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
     "category_id": 2,
-    "image": "./imgs/products/matkap.png"
+    "image": "./imgs/products/matkap.png,./imgs/products/bagg2.jpg,./imgs/products/bagg3.jpg"
   },
   {
     "id": 12,
@@ -107,7 +107,7 @@
     "price": 2300,
     "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
     "category_id": 1,
-    "image": "./imgs/products/parfum.png"
+    "image": "./imgs/products/parfum.png,./imgs/products/bagg2.jpg,./imgs/products/bagg3.jpg"
   }
   
   
