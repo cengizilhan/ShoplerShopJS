@@ -71,31 +71,32 @@
 
 
 
-    function FillProduct(){
+  function FillProduct() {
     NotBarFill();
-    
-
-      var urlstring = window.location.href;
-      var productid = urlstring.substr(urlstring.indexOf("ProductId=") + 10, 2);
-      console.log(productid);
-      var flag = null;
-      $.get("./js/products.json", function (data) {
-
-     
-        
 
 
-        for (i = 0; i < data.length; i++) {
-          console.log(i);
-          if (data[i].id == productid) {
-            flag = i;
-          }
+    var urlstring = window.location.href;
+    var productid = urlstring.substr(urlstring.indexOf("ProductId=") + 10, 2);
+
+    var flag = null;
+    $.get("./js/products.json", function (data) {
+
+
+
+
+
+      for (i = 0; i < data.length; i++) {
+
+        if (data[i].id == productid) {
+          flag = i;
         }
-        
+      }
 
-        var imageArr = data[flag].image.split(",");
-        
-        var Htmlitem = `
+
+      var imageArr = data[flag].image.split(",");
+
+
+      var htmlitem1 = `
         <div class="verticaldiv smallimg">
       
       
@@ -119,13 +120,11 @@
 <h1>${data[flag].title} </h1>
 <h5>Ürün Kodu:FKR 336</h5>
 <h4>Bosh</h4>
-<h3>${data[flag].price} TL</h3>
-<div class="CargoPrice"><i class="fas fa-shipping-fast"></i> Ücretsiz Kargo</div>
-<h6>Tahmini Kargo Gönderim Süresi: Bugün</h6>
+<h3>${data[flag].price} TL</h3>`;
+
+      var htmlitem2Cargo = `<div class="CargoPrice"><i class="fas fa-shipping-fast"></i> Ücretsiz Kargo</div>`;
+      var htmlitem3 = `<h6>Tahmini Kargo Gönderim Süresi: Bugün</h6>
 <button class="addcart" data-title="${data[flag].id}" onClick="notifyBar()" ><i class="fas fa-shopping-cart"></i> Sepete Ekle</button>
-
-
-
 </div>
 <div class="verticaldiv starcontainer">
 <div class="stardiv"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
@@ -133,11 +132,14 @@
   <p>Değerlendirme</p>
 </div>
 </div>`;
-        $(Htmlitem).appendTo('#fillContainer');
+      var htmlsum;
+      (data[flag].isFreeCargo) ? htmlsum = (htmlitem1 + htmlitem2Cargo + htmlitem3) : htmlsum = (htmlitem1 + htmlitem3);
+      $(htmlsum).appendTo('#fillContainer');
+      CategoryNameFinder(data[flag].category_id);
 
-      })
+    })
 
-    }
+  }
 
 
 </script>
@@ -172,63 +174,30 @@
     <script>
 
 
-  $(document).ready(function () {
+      $(document).ready(function () {
 
-   
-    FillProductToOwl();
-  
-    FillProduct();
 
-    //background img urls add to div "href" attr for pop up gallery.//
-    $("#tumpimgs .tumpimg").each(function (e) {
-      var item = $('.tumpimg').eq(e);
-      item.attr("href", item.css("background-image").replace(/^url\(["']?/, '').replace(/["']?\)$/, ''));
-    })
+        FillProductToOwl();
 
-    $('.bigimg').attr("href", $('.bigimg').css("background-image").replace(/^url\(["']?/, '').replace(/["']?\)$/, ''));
+        FillProduct();
 
-    /////
-  });
+        //background img urls add to div "href" attr for pop up gallery.//
+        $("#tumpimgs .tumpimg").each(function (e) {
+          var item = $('.tumpimg').eq(e);
+          item.attr("href", item.css("background-image").replace(/^url\(["']?/, '').replace(/["']?\)$/, ''));
+        })
+
+        $('.bigimg').attr("href", $('.bigimg').css("background-image").replace(/^url\(["']?/, '').replace(/["']?\)$/, ''));
+
+        /////
+      });
 
     </script>
-    <h5>Ana Sayfa \ Bahçe ve Yapı Market</h5>
+    <h5 class="NavMap2"><a href="./index.html">Anasayfa \&nbsp; </a> </h5>
+    <h5 class="navMap"></h5>
   </div>
   <div class="productContainer" id="fillContainer">
-    <!--
-    <div class="verticaldiv smallimg" id="tumpimgs">
 
-      <div data-fancybox="gallery" class="tumpimg">
-
-      </div>
-      <div data-fancybox="gallery" class="tumpimg">
-
-      </div>
-      <div data-fancybox="gallery" class="tumpimg">
-      </div>
-
-    </div>
-    <div class="verticaldiv bigimg" data-fancybox="gallery" ></div>
-
-    <div class="verticaldiv destrip">
-
-      <h1>Fakir Ütü</h1>
-      <h5>Ürün Kodu:FKR 336</h5>
-      <h4>Bosh</h4>
-      <h3>300 TL</h3>
-      <div class="CargoPrice"><i class="fas fa-shipping-fast"></i> Ücretsiz Kargo</div>
-      <h6>Tahmini Kargo Gönderim Süresi: Bugün</h6>
-      <button><i class="fas fa-shopping-cart"></i> Sepete Ekle</button>
-
-
-
-    </div>
-    <div class="verticaldiv starcontainer">
-      <div class="stardiv"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-          class="fas fa-star"></i><i class="fas fa-star"></i>
-        <p>Değerlendirme</p>
-      </div>
-    </div>
--->
   </div>
 
   <div class="productContainer otherproducts">
@@ -239,11 +208,11 @@
   <div class="productContainer">
 
     <div class="owl-carousel" id="owlcontainer">
-   
 
 
 
-  </div>
+
+    </div>
 
 
   </div>
@@ -254,33 +223,33 @@
     <script>
 
 
-        $(document).ready(function () {
-          document.getElementById("defaultopen").click();
-        });
+      $(document).ready(function () {
+        document.getElementById("defaultopen").click();
+      });
 
 
 
-        function openCity(evt, cityName) {
-          // Declare all variables
-          var i, tabcontent, tablinks;
+      function openCity(evt, cityName) {
+        // Declare all variables
+        var i, tabcontent, tablinks;
 
-          // Get all elements with class="tabcontent" and hide them
-          tabcontent = document.getElementsByClassName("tabcontent");
-          for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-          }
-
-          // Get all elements with class="tablinks" and remove the class "active"
-          tablinks = document.getElementsByClassName("tablinks");
-          for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-          }
-
-          // Show the current tab, and add an "active" class to the button that opened the tab
-          document.getElementById(cityName).style.display = "block";
-          evt.currentTarget.className += " active";
-
+        // Get all elements with class="tabcontent" and hide them
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
         }
+
+        // Get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+
+      }
     </script>
     <!-- Tab links -->
     <div class="tab">
