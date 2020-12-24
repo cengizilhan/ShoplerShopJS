@@ -90,7 +90,7 @@
       var selectedItem = $(this).data('title');
 
       $.get("./js/products.json", function (data) {
-    
+        console.log(data[selectedItem - 1])
         AddBasket(data[selectedItem - 1]);
         NotBarFill();
 

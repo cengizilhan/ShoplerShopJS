@@ -77,44 +77,49 @@ function CountChanger(id, operation) {
 
 function AddBasket(pushItem) {
   if ("products" in localStorage) {
-    var storedNames = getFromStorage("products");
+    var storedNames = JSON.parse(localStorage.getItem("products"));
+    if (typeof storedNames === 'undefined' || storedNames.length > 0) {
+      flag = null;
+      for (i = 0; i < storedNames.length; i++) {
+        if (storedNames[i].id == pushItem.id) {
 
-
-    var item = storedNames.find((c) => c.title == pushItem.title);
-    console.log("test");
-    console.log(item);
-
-    var flag = 0;
-
-    for (i = 0; i < storedNames.length; i++) {
-      if (storedNames[i].title == pushItem.title) {
-        storedNames[i].basket_piece++;
-
-        setToStorage("products", JSON.stringify(storedNames));
-        var storedNames = getFromStorage("products");
-        flag = 1;
-        break;
+          storedNames[i].basket_piece++;
+          setToStorage("products", JSON.stringify(storedNames));
+          flag = 1;
+          break;
+        }
       }
-    }
-    if (flag == 0) {
-      var storedNames = getFromStorage("products");
-      storedNames.push(pushItem);
+      if (flag == null) {
 
-      setToStorage("products", JSON.stringify(storedNames));
+        storedNames.push(pushItem);
+        setToStorage("products", JSON.stringify(storedNames));
+      }
+
+
     }
-  } else {
-    setToStorage("products", [pushItem]);
+
+    else {
+
+      setToStorage("products", JSON.stringify([pushItem]));
+
+    }
+  }
+  else {
+    //if localstorage is null(first step)
+    setToStorage("products", JSON.stringify([pushItem]));
+
   }
 }
 
 
+
+
 function setToStorage(itemKey, json) {
-  try {
-    localStorage.setItem(itemKey, json);
-  } catch (err) {
-    console.log("hata");
-    console.log(err);
-  }
+
+  localStorage.setItem(itemKey, json);
+
+
+
 }
 
 function getFromStorage(itemKey) { //session-localstorage-cache//
@@ -180,16 +185,18 @@ function FillProductToOwl() {
 }
 
 function CategoryNameFinder(id) {
-  
+
   $.get("js/category.json", function (data) {
-   
+
     $.each(data, function (index, value) {
-      (id==value.ID) ? $(`<a href="${value.link}">${value.color}</a>`).appendTo('.navMap'): false;
+      (id == value.ID) ? $(`<a href="${value.link}">${value.color}</a>`).appendTo('.navMap') : false;
     })
 
   })
 
 }
+
+
 
 
 
