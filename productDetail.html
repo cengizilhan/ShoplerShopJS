@@ -116,10 +116,11 @@
 <a data-fancybox="gallery" href="${imageArr[0]}"> <div class="verticaldiv bigimg"  style="background-image:url('${imageArr[0]}'"></div></a>
 
 <div class="verticaldiv destrip">
+  
 
 <h1>${data[flag].title} </h1>
-<h5>Ürün Kodu:FKR 336</h5>
-<h4>Bosh</h4>
+<h5>Ürün Kodu:${data[flag].product_code}</h5>
+<h4><a href="./index.html?brand=${data[flag].brand}">${data[flag].brand}</a></h4>
 <h3>${data[flag].price} TL</h3>`;
 
       var htmlitem2Cargo = `<div class="CargoPrice"><i class="fas fa-shipping-fast"></i> Ücretsiz Kargo</div>`;
