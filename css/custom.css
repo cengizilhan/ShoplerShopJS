@@ -92,7 +92,84 @@ body{
     border-bottom:2px solid #DEDEDE;
 width: 220px;  
 }
+.BrandNav{
+  color:#707070;
+  font-weight: 400;
+  margin-left:20px;
+  border-bottom:1px solid #F4B95F;
+  max-width: fit-content;
+  font-size:20px;
+  margin-top:15px;
+  display:none;
+}
+
+.resultdiv{
+  position: absolute;
+  background-color: white;
+  width:max-content;
+  border-radius: 5px;
+  margin-left: 30px;
+  margin-top:8px;
+  padding: 5px;
+  color: #707070;
+  border: 1px solid #F4B95F;
+  z-index: 9;
+}
+.resultdiv a {
+  color:#707070;
+  text-decoration: none;
+  line-height: 20px;
+}
   
+.searchbar
+{
+  font-size:15px;
+  
+  margin-left:30px;
+  
+  
+  
+}
+@-webkit-keyframes fadeIn {
+  from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+    to { opacity: 0; }
+}
+.fa-search:hover
+{
+  font-size:15px;
+  color:#F4B95F;
+}
+input[type=text] {
+  display:none;
+  -webkit-animation: fadeIn 4s;
+  animation: fadeIn 4s;
+border:2px solid #F4B95F;
+border-radius:30px;
+height: 25px;
+margin-left:10px;
+margin-top:-3px;
+color:#707070;
+-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+box-sizing: border-box;
+width: 20%;
+position: absolute;
+ 
+}
+
+input[type=text]:focus {
+  
+  outline:none;
+
+}
  
 .verticalNavigation i
     {
@@ -389,6 +466,7 @@ background-image:url('../imgs/products/ayakkabi1.png');
   font-size:15px !important;
   color:#707070;
   text-decoration: none;
+  font-weight: 500;
 }
 
 .bigimg{
@@ -401,6 +479,23 @@ background-image:url('../imgs/products/ayakkabi1.png');
   margin-left:14px;
   cursor: pointer;
 }
+.bigimg:hover{
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5); 
+  z-index:99;
+  background-color: white;
+  position: relative;
+  }
+  .tumpimg:hover{
+    -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5); 
+  z-index:99;
+  background-color: white;
+  position: relative;
+
+  }
 .destrip {
   position: relative;
   width: 350px;

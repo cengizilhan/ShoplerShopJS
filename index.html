@@ -65,9 +65,40 @@
               $(appendItem).append(htmlItem);
             }
           }
+        } /* Search */
+        else if ((urlstring.indexOf("search") != -1)){
+          var brandParse=urlstring.substr(urlstring.indexOf("=") + 1);
+        
+          $('.slider').empty();
+          $('.BrandNav').append(brandParse+' aramasının sonuçları');
+          $('.BrandNav').css("display", "block");
+       
+          var regex = new RegExp(brandParse, "i");
+        filteredSearch = data.filter(x => x.brand.match(regex) || x.product_code.match(regex) || x.title.match(regex));
+
+        var htmlitemsum = "";
+
+        $.each(filteredSearch, function (index, value) {
+          var imageArr = value.image.split(",");
+          htmlitemsum +=  '<div class="ShopItems" ><div class="ShopItem" data-title="' + value.id + '" style="background: url(' + imageArr[0] +
+                ');background-size:150px 200px;"></div> ' + value.title + ' <p><b><i>' + value.price +
+                ' TL</i></b></p><div class="addBasket" onClick="notifyBar()" data-title="' + value.id + '"><i class="fas fa-shopping-cart"></i> Add to Cart</div></div>';
+                
+              });
+
+       
+        $(htmlitemsum).appendTo(appendItem);
+
+       
+
+
         }
         else if ((urlstring.indexOf("brand") != -1)){
           var brandParse=urlstring.substr(urlstring.indexOf("=") + 1);
+          $('.slider').empty();
+          $('.BrandNav').append(brandParse+' Markasına Ait Ürünler');
+          $('.BrandNav').css("display", "block");
+       
           for (i = 0; i < data.length; i++) {
             if (data[i].brand == brandParse) {
               var imageArr = data[i].image.split(",");
@@ -220,6 +251,7 @@ Data come from below section as javascript / json
 
     <div class="content">
       <hr class="hrline" >
+      <h1  class="BrandNav"></h1>
       <section class="lazy slider" data-sizes="50vw" style="margin-top:20px;">
 
         <div>

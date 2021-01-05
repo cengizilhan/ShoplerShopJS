@@ -194,9 +194,68 @@
       });
 
     </script>
+
     <h5 class="NavMap2"><a href="./index.html">Anasayfa \&nbsp; </a> </h5>
-    <h5 class="navMap"></h5>
+    <h5 class="navMap"></h5> &nbsp;
+    <span class="searchbar"> <i class="searchicon fas fa-search"></i> <input type="text" onfocus="this.value=''"
+        class="textbox" value="Aramak istediğiniz ürünün bilgilerini girin">
+      <div class="resultdiv"></div>
+    </span>
   </div>
+  <script>
+
+    $(document).ready(function () {
+      $(document).on("click", function (event) {
+        event.target.className == "resultdiv" ? true : $('.resultdiv').css('display', 'none');
+      })
+    });
+
+    var searchflag = 0;
+    $('.searchicon').on('click', (e) => {
+      searchflag++;
+      (searchflag % 2) == 1 ? $('.textbox').css("display", "inline-block") : $('.textbox').css("display", "none");
+    });
+
+
+
+    var timeout = null
+    $('.textbox').on('keyup', function () {
+
+      clearTimeout(timeout)
+      timeout = setTimeout(function () {
+
+        var val = $(".textbox").val();
+        SearchBox(val);
+
+      }, 500)
+    })
+
+    function SearchBox(querystr) {
+
+      $.get("./js/products.json", function (data) {
+        var regex = new RegExp(querystr, "i");
+        filteredSearch = data.filter(x => x.brand.match(regex) || x.product_code.match(regex) || x.title.match(regex));
+
+        var htmlitemsum = "";
+
+        $.each(filteredSearch, function (index, value) {
+          htmlitemsum += `
+         <h2> <a href="./productDetail.html?ProductId=${value.id}"> <b>${value.brand}</b>  ${value.title} </a><h2>`;
+        });
+
+        $('.resultdiv').empty();
+        var emptyMsg = `<h2>Sonuç bulunamadı.<h2>`;
+          var GoResults=`<h2> <a href="./index.html?search=${querystr}">Sonuçlara gitmek için tıklayın.</a><h2>`;
+        (htmlitemsum == "") ? $(emptyMsg).appendTo('.resultdiv') : $(htmlitemsum+GoResults).appendTo('.resultdiv');
+
+        $('.resultdiv').css('display', 'block');
+
+      });
+
+    }
+
+
+  </script>
   <div class="productContainer" id="fillContainer">
 
   </div>
