@@ -479,23 +479,7 @@ background-image:url('../imgs/products/ayakkabi1.png');
   margin-left:14px;
   cursor: pointer;
 }
-.bigimg:hover{
-  -ms-transform: scale(1.5); /* IE 9 */
-  -webkit-transform: scale(1.5); /* Safari 3-8 */
-  transform: scale(1.5); 
-  z-index:99;
-  background-color: white;
-  position: relative;
-  }
-  .tumpimg:hover{
-    -ms-transform: scale(1.5); /* IE 9 */
-  -webkit-transform: scale(1.5); /* Safari 3-8 */
-  transform: scale(1.5); 
-  z-index:99;
-  background-color: white;
-  position: relative;
 
-  }
 .destrip {
   position: relative;
   width: 350px;
@@ -731,6 +715,7 @@ border-bottom:2px solid #70707040;
     color:#707070;
     text-decoration: none;
     }
+
 
 @media screen and (min-device-width: 768px) {
   .MenuButton {  display:none; }

@@ -195,12 +195,3 @@ function CategoryNameFinder(id) {
   })
 
 }
-
-
-
-
-
-
-
-
-
